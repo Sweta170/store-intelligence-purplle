@@ -1,0 +1,324 @@
+{
+  "stores": [
+    {
+      "store_id": "STORE_BLR_001",
+      "opening_hours": {
+        "open": "09:00:00",
+        "close": "22:00:00"
+      },
+      "cameras": [
+        {
+          "camera_id": "CAM_ENTRY_01",
+          "zone": "ENTRY"
+        },
+        {
+          "camera_id": "CAM_EXIT_01",
+          "zone": "EXIT"
+        },
+        {
+          "camera_id": "CAM_SKINCARE_01",
+          "zone": "SKINCARE"
+        },
+        {
+          "camera_id": "CAM_MAKEUP_01",
+          "zone": "MAKEUP"
+        },
+        {
+          "camera_id": "CAM_FRAGRANCE_01",
+          "zone": "FRAGRANCE"
+        },
+        {
+          "camera_id": "CAM_HAIRCARE_01",
+          "zone": "HAIRCARE"
+        },
+        {
+          "camera_id": "CAM_BILLING_01",
+          "zone": "BILLING"
+        }
+      ],
+      "zones": [
+        {
+          "zone_id": "SKINCARE",
+          "description": "Skincare section in STORE_BLR_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "MAKEUP",
+          "description": "Makeup section in STORE_BLR_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "FRAGRANCE",
+          "description": "Fragrance section in STORE_BLR_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "HAIRCARE",
+          "description": "Haircare section in STORE_BLR_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "BILLING",
+          "description": "Billing section in STORE_BLR_001",
+          "capacity_threshold": 5
+        }
+      ]
+    },
+    {
+      "store_id": "STORE_BLR_002",
+      "opening_hours": {
+        "open": "09:00:00",
+        "close": "22:00:00"
+      },
+      "cameras": [
+        {
+          "camera_id": "CAM_ENTRY_01",
+          "zone": "ENTRY"
+        },
+        {
+          "camera_id": "CAM_EXIT_01",
+          "zone": "EXIT"
+        },
+        {
+          "camera_id": "CAM_SKINCARE_01",
+          "zone": "SKINCARE"
+        },
+        {
+          "camera_id": "CAM_MAKEUP_01",
+          "zone": "MAKEUP"
+        },
+        {
+          "camera_id": "CAM_FRAGRANCE_01",
+          "zone": "FRAGRANCE"
+        },
+        {
+          "camera_id": "CAM_HAIRCARE_01",
+          "zone": "HAIRCARE"
+        },
+        {
+          "camera_id": "CAM_BILLING_01",
+          "zone": "BILLING"
+        }
+      ],
+      "zones": [
+        {
+          "zone_id": "SKINCARE",
+          "description": "Skincare section in STORE_BLR_002",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "MAKEUP",
+          "description": "Makeup section in STORE_BLR_002",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "FRAGRANCE",
+          "description": "Fragrance section in STORE_BLR_002",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "HAIRCARE",
+          "description": "Haircare section in STORE_BLR_002",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "BILLING",
+          "description": "Billing section in STORE_BLR_002",
+          "capacity_threshold": 5
+        }
+      ]
+    },
+    {
+      "store_id": "STORE_DEL_001",
+      "opening_hours": {
+        "open": "09:00:00",
+        "close": "22:00:00"
+      },
+      "cameras": [
+        {
+          "camera_id": "CAM_ENTRY_01",
+          "zone": "ENTRY"
+        },
+        {
+          "camera_id": "CAM_EXIT_01",
+          "zone": "EXIT"
+        },
+        {
+          "camera_id": "CAM_SKINCARE_01",
+          "zone": "SKINCARE"
+        },
+        {
+          "camera_id": "CAM_MAKEUP_01",
+          "zone": "MAKEUP"
+        },
+        {
+          "camera_id": "CAM_FRAGRANCE_01",
+          "zone": "FRAGRANCE"
+        },
+        {
+          "camera_id": "CAM_HAIRCARE_01",
+          "zone": "HAIRCARE"
+        },
+        {
+          "camera_id": "CAM_BILLING_01",
+          "zone": "BILLING"
+        }
+      ],
+      "zones": [
+        {
+          "zone_id": "SKINCARE",
+          "description": "Skincare section in STORE_DEL_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "MAKEUP",
+          "description": "Makeup section in STORE_DEL_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "FRAGRANCE",
+          "description": "Fragrance section in STORE_DEL_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "HAIRCARE",
+          "description": "Haircare section in STORE_DEL_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "BILLING",
+          "description": "Billing section in STORE_DEL_001",
+          "capacity_threshold": 5
+        }
+      ]
+    },
+    {
+      "store_id": "STORE_MUM_001",
+      "opening_hours": {
+        "open": "09:00:00",
+        "close": "22:00:00"
+      },
+      "cameras": [
+        {
+          "camera_id": "CAM_ENTRY_01",
+          "zone": "ENTRY"
+        },
+        {
+          "camera_id": "CAM_EXIT_01",
+          "zone": "EXIT"
+        },
+        {
+          "camera_id": "CAM_SKINCARE_01",
+          "zone": "SKINCARE"
+        },
+        {
+          "camera_id": "CAM_MAKEUP_01",
+          "zone": "MAKEUP"
+        },
+        {
+          "camera_id": "CAM_FRAGRANCE_01",
+          "zone": "FRAGRANCE"
+        },
+        {
+          "camera_id": "CAM_HAIRCARE_01",
+          "zone": "HAIRCARE"
+        },
+        {
+          "camera_id": "CAM_BILLING_01",
+          "zone": "BILLING"
+        }
+      ],
+      "zones": [
+        {
+          "zone_id": "SKINCARE",
+          "description": "Skincare section in STORE_MUM_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "MAKEUP",
+          "description": "Makeup section in STORE_MUM_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "FRAGRANCE",
+          "description": "Fragrance section in STORE_MUM_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "HAIRCARE",
+          "description": "Haircare section in STORE_MUM_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "BILLING",
+          "description": "Billing section in STORE_MUM_001",
+          "capacity_threshold": 5
+        }
+      ]
+    },
+    {
+      "store_id": "STORE_HYD_001",
+      "opening_hours": {
+        "open": "09:00:00",
+        "close": "22:00:00"
+      },
+      "cameras": [
+        {
+          "camera_id": "CAM_ENTRY_01",
+          "zone": "ENTRY"
+        },
+        {
+          "camera_id": "CAM_EXIT_01",
+          "zone": "EXIT"
+        },
+        {
+          "camera_id": "CAM_SKINCARE_01",
+          "zone": "SKINCARE"
+        },
+        {
+          "camera_id": "CAM_MAKEUP_01",
+          "zone": "MAKEUP"
+        },
+        {
+          "camera_id": "CAM_FRAGRANCE_01",
+          "zone": "FRAGRANCE"
+        },
+        {
+          "camera_id": "CAM_HAIRCARE_01",
+          "zone": "HAIRCARE"
+        },
+        {
+          "camera_id": "CAM_BILLING_01",
+          "zone": "BILLING"
+        }
+      ],
+      "zones": [
+        {
+          "zone_id": "SKINCARE",
+          "description": "Skincare section in STORE_HYD_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "MAKEUP",
+          "description": "Makeup section in STORE_HYD_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "FRAGRANCE",
+          "description": "Fragrance section in STORE_HYD_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "HAIRCARE",
+          "description": "Haircare section in STORE_HYD_001",
+          "capacity_threshold": 15
+        },
+        {
+          "zone_id": "BILLING",
+          "description": "Billing section in STORE_HYD_001",
+          "capacity_threshold": 5
+        }
+      ]
+    }
+  ]
+}
