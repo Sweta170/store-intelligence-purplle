@@ -36,7 +36,9 @@ flowchart TD
 * **Agent-Based Intelligence Pipeline**: 7 decoupled agents analyzing telemetry data, mapping session logic, checking queue bottlenecks, and building markdown executive insights.
 * **Visitor Session Reconstruction**: Groups raw time-series camera ticks into logical visits, calculating session dwells and tracking zone pathways.
 * **Conversion Funnel Analytics**: Measures traffic transition percentages and step-wise drop-offs.
-* **Heatmap Generation**: Computes department foot traffic, average dwell times, and an engagement index ($\text{visits} \times \text{dwell mins}$).
+* **Heatmap Generation**: Computes department foot traffic, average dwell times, normalized engagement scores, and low-confidence visual alerts.
+* **Challenge Schema Integration**: Validates and stores machine learning camera telemetry including `gender_pred`, `age_pred`, `age_bucket`, `group_size`, `zone_name`, and `zone_type`.
+* **Chronological Conversion Logic**: Links billing zone join events with POS checkouts using a strict 5-minute chronological window constraint.
 * **Operational Anomaly Detection**: Proactively detects queue spikes, camera stale feeds, dead zones, and conversion drop-offs.
 * **PostgreSQL / SQLite Support**: Fully adaptive connections, defaulting to a shared SQLite connection during tests and PostgreSQL in production.
 * **Streamlit Dashboard**: Dark-mode frontend showcasing analytics tables, charts, active operational alerts, and an ingestion testing sandbox.
