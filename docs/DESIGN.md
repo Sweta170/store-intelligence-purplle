@@ -92,6 +92,12 @@ The storage layer is defined in [schema.sql](file:///E:/finalyearproject/purplle
 | is_staff            |
 | confidence          |
 | metadata (JSON)     |
+| gender_pred         |
+| age_pred            |
+| age_bucket          |
+| group_size          |
+| zone_name           |
+| zone_type           |
 +---------------------+
 ```
 

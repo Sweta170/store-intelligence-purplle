@@ -15,6 +15,12 @@ class Event(Base):
     is_staff = Column(Boolean, default=False)
     confidence = Column(Float, nullable=False)
     event_metadata = Column("metadata", JSON, nullable=True)  # Store custom JSON structures
+    gender_pred = Column(String(20), nullable=True)
+    age_pred = Column(Integer, nullable=True)
+    age_bucket = Column(String(20), nullable=True)
+    group_size = Column(Integer, nullable=True)
+    zone_name = Column(String(50), nullable=True)
+    zone_type = Column(String(50), nullable=True)
 
 class POSTransaction(Base):
     __tablename__ = "pos_transactions"

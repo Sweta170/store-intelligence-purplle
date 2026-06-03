@@ -64,10 +64,10 @@ class ConversionAgent:
                     continue
                     
                 tx_time = get_timestamp(tx)
-                time_diff = abs((e_time - tx_time).total_seconds())
+                time_diff = (tx_time - e_time).total_seconds()
                 
-                # Check 5 minutes window rule
-                if time_diff <= self.time_window_seconds:
+                # Check 5 minutes window rule: billing event must be within 5 mins before transaction
+                if 0 <= time_diff <= self.time_window_seconds:
                     if time_diff < best_diff:
                         best_diff = time_diff
                         best_tx = tx

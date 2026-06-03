@@ -22,6 +22,12 @@ class EventIngestSchema(BaseModel):
     is_staff: Optional[bool] = Field(False, description="True if visitor is staff")
     confidence: float = Field(..., description="Camera reading confidence")
     metadata: Optional[EventMetadataSchema] = None
+    gender_pred: Optional[str] = Field(None, description="Predicted gender")
+    age_pred: Optional[int] = Field(None, description="Predicted age")
+    age_bucket: Optional[str] = Field(None, description="Predicted age bucket")
+    group_size: Optional[int] = Field(None, description="Group size")
+    zone_name: Optional[str] = Field(None, description="Zone name")
+    zone_type: Optional[str] = Field(None, description="Zone type")
 
 class IngestionResultSchema(BaseModel):
     status: str
@@ -75,7 +81,13 @@ def ingest_events_batch(db: Session, raw_events: List[Dict[str, Any]]) -> Dict[s
             dwell_ms=ev.get("dwell_ms", 0),
             is_staff=ev.get("is_staff", False),
             confidence=ev.get("confidence"),
-            event_metadata=meta_dict
+            event_metadata=meta_dict,
+            gender_pred=ev.get("gender_pred"),
+            age_pred=ev.get("age_pred"),
+            age_bucket=ev.get("age_bucket"),
+            group_size=ev.get("group_size"),
+            zone_name=ev.get("zone_name"),
+            zone_type=ev.get("zone_type")
         )
         db_objects.append(db_obj)
         

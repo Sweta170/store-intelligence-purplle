@@ -11,7 +11,13 @@ CREATE TABLE IF NOT EXISTS events (
     dwell_ms INTEGER DEFAULT 0,
     is_staff BOOLEAN DEFAULT FALSE,
     confidence REAL NOT NULL,
-    metadata JSONB
+    metadata JSONB,
+    gender_pred VARCHAR(20),
+    age_pred INTEGER,
+    age_bucket VARCHAR(20),
+    group_size INTEGER,
+    zone_name VARCHAR(50),
+    zone_type VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS pos_transactions (

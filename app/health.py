@@ -43,6 +43,8 @@ def check_system_health(db: Session) -> dict:
         
     return {
         "status": status,
+        "service_status": status,
         "last_event_timestamp": last_timestamp.isoformat() + "Z" if last_timestamp else None,
+        "latest_event_timestamp": last_timestamp.isoformat() + "Z" if last_timestamp else None,
         "stale_feed_warnings": warnings
     }

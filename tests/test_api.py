@@ -149,3 +149,43 @@ def test_api_missing_store():
     """
     response = client.get("/stores/STORE_MISSING_123/metrics")
     assert response.status_code == 404
+
+
+def test_api_events_ingest_extra_fields():
+    """
+    Test that events with extra fields can be successfully ingested and verified in the database.
+    """
+    event_payload = [
+        {
+            "event_id": "api-e-extra",
+            "store_id": "STORE_API_EXTRA",
+            "camera_id": "CAM_ENTRY_01",
+            "visitor_id": "VIS_API_EXTRA",
+            "event_type": "ENTRY",
+            "timestamp": "2026-03-03T11:00:00Z",
+            "dwell_ms": 0,
+            "is_staff": False,
+            "confidence": 0.98,
+            "gender_pred": "Male",
+            "age_pred": 30,
+            "age_bucket": "18-35",
+            "group_size": 1,
+            "zone_name": "Main Entrance",
+            "zone_type": "ENTRY"
+        }
+    ]
+    response = client.post("/events/ingest", json=event_payload)
+    assert response.status_code == 201
+    
+    # Retrieve the event from the test database to confirm it saved the extra fields
+    db = next(override_get_db())
+    from app.models import Event
+    event = db.query(Event).filter(Event.event_id == "api-e-extra").first()
+    assert event is not None
+    assert event.gender_pred == "Male"
+    assert event.age_pred == 30
+    assert event.age_bucket == "18-35"
+    assert event.group_size == 1
+    assert event.zone_name == "Main Entrance"
+    assert event.zone_type == "ENTRY"
+    db.close()

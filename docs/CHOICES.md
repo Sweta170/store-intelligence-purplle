@@ -35,3 +35,15 @@ This document details the choices made during the development of the Retail Stor
 * **Fast Development**: Streamlit allows building highly interactive, data-dense web apps entirely in Python.
 * **Data Integration**: Integrates directly with Pandas, Plotly, and Requests, making it straightforward to pull FastAPI data, run visual transformations, and render high-fidelity charts.
 * **Self-Contained**: Eliminates the need for a separate Node.js/React build step, aligning perfectly with the single-command deployment goal.
+
+---
+
+## 6. Why Conversion Matching Uses Temporal Proximity?
+* **Lack of Direct Visitor IDs on Receipts**: POS transactions are recorded at checkout registers and contain payment/basket info, but do not naturally associate with a visitor's tracking ID (which is derived from camera feeds).
+* **Heuristics for Conversion Linkage**: By linking billing camera zone events with receipts processed in a 5-minute chronological window after queue entry, the platform resolves customer-to-transaction mappings with high confidence. This mimics real-world cashier workflow times.
+
+---
+
+## 7. Why Re-entry Handling Matters?
+* **Avoiding Funnel Inflation**: Customers frequently browse, leave, and step back inside a store (e.g. comparing prices or retrieving items). If re-entries are treated as entirely new visitors, unique visitor counts and funnel conversion percentages will be artificially inflated and skewed.
+* **Visitor-Level Session Consolidation**: Recognizing re-entry behavior ensures customer paths are aggregated on a unique-visitor basis rather than session-count basis, preserving analytical integrity.

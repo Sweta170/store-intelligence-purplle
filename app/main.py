@@ -89,7 +89,13 @@ def startup_db_setup():
                                 dwell_ms=ev.get("dwell_ms", 0),
                                 is_staff=ev.get("is_staff", False),
                                 confidence=ev["confidence"],
-                                event_metadata=ev.get("metadata")
+                                event_metadata=ev.get("metadata"),
+                                gender_pred=ev.get("gender_pred"),
+                                age_pred=ev.get("age_pred"),
+                                age_bucket=ev.get("age_bucket"),
+                                group_size=ev.get("group_size"),
+                                zone_name=ev.get("zone_name"),
+                                zone_type=ev.get("zone_type")
                             )
                         )
                         
@@ -121,7 +127,7 @@ def ingest_events(events: List[EventIngestSchema], db: Session = Depends(get_db)
     Fails or skips duplicates, low-confidence entries, and schema mismatches.
     """
     # Convert schemas to raw dicts for validation agent
-    raw_list = [ev.dict() for ev in events]
+    raw_list = [ev.model_dump() for ev in events]
     result = ingest_events_batch(db, raw_list)
     return result
 
@@ -183,16 +189,25 @@ def get_heatmap(store_id: str, db: Session = Depends(get_db)):
     heatmap = get_store_heatmap(db, store_id)
     
     # Format zone visits and avg dwell
-    zone_visits = {z_id: data["visits"] for z_id, data in heatmap["zones"].items()}
-    avg_dwell = {z_id: data["average_dwell_seconds"] for z_id, data in heatmap["zones"].items()}
+    zone_frequency = {z_id: data["visits"] for z_id, data in heatmap["zones"].items()}
+    average_dwell = {z_id: data["average_dwell_seconds"] for z_id, data in heatmap["zones"].items()}
+    
+    # Compute normalized scores for each zone
+    max_engagement = max([data["engagement_score"] for data in heatmap["zones"].values()]) if heatmap["zones"] else 0.0
+    if max_engagement == 0.0:
+        max_engagement = 1.0
+    normalized_scores = {z_id: round((data["engagement_score"] / max_engagement) * 100.0, 2) for z_id, data in heatmap["zones"].items()}
     
     # Determine if any camera zone is flagged low confidence
     has_low_confidence = any(data["low_confidence_flag"] for data in heatmap["zones"].values())
     
     return {
         "store_id": store_id,
-        "zone_visits": zone_visits,
-        "avg_dwell": avg_dwell,
+        "zone_frequency": zone_frequency,
+        "zone_visits": zone_frequency,
+        "average_dwell": average_dwell,
+        "avg_dwell": average_dwell,
+        "normalized_scores": normalized_scores,
         "confidence_flag": has_low_confidence
     }
 
