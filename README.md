@@ -55,30 +55,77 @@ flowchart TD
 ---
 
 ## 🚀 Quick Start (Docker Compose)
-Launch the entire system on a fresh machine with a single command:
+
+If you have Docker installed, you can launch the entire system on your machine with a single command:
+
 ```bash
 docker-compose up --build
 ```
+
 This boots up:
-1. **PostgreSQL Database** (port `5432`).
-2. **FastAPI Backend** (port `8000`).
-3. **Streamlit Dashboard** (port `8501`).
+1. **PostgreSQL Database** (listening on port `5432`).
+2. **FastAPI Backend** (listening on port `8000`).
+3. **Streamlit Dashboard** (listening on port `8501`).
 
-* OpenAPI Swagger Docs: [http://localhost:8000/docs](http://localhost:8000/docs)
-* Streamlit Dashboard UI: [http://localhost:8501](http://localhost:8501)
+* **OpenAPI Swagger Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
+* **Streamlit Dashboard UI**: [http://localhost:8501](http://localhost:8501)
 
-### Local Fallback (Without Docker)
-If Docker is not running, run it locally using SQLite:
+---
+
+## 💻 Local Setup (Without Docker)
+
+If you do not have Docker running, or prefer to run the project locally, you can use the built-in **SQLite** database mode. Follow these steps:
+
+### Prerequisites
+* **Python 3.8+** installed on your system.
+
+### Step 1: Clone and Navigate to Project Directory
+Navigate to the root folder of the project:
 ```bash
-# 1. Install libraries
+cd store-intelligence
+```
+
+### Step 2: Create a Virtual Environment
+Create a clean Python virtual environment:
+```bash
+python -m venv .venv
+```
+
+### Step 3: Activate the Virtual Environment
+Activate the environment based on your operating system:
+* **macOS / Linux**:
+  ```bash
+  source .venv/bin/activate
+  ```
+* **Windows (PowerShell)**:
+  ```powershell
+  .venv\Scripts\Activate.ps1
+  ```
+* **Windows (Command Prompt / CMD)**:
+  ```cmd
+  .venv\Scripts\activate.bat
+  ```
+
+### Step 4: Install Dependencies
+Install all required libraries (including the automatic database seeder requirements, `matplotlib` for pandas styling, and `httpx` for test execution):
+```bash
 pip install -r requirements.txt
+```
 
-# 2. Start Backend API
+### Step 5: Start the Backend API
+Start the FastAPI server using Uvicorn. The backend will automatically create and seed the local SQLite database (`store_intelligence.db`) with synthetic data upon starting:
+```bash
 uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
+* **Verify Backend**: Open [http://localhost:8000/docs](http://localhost:8000/docs) in your browser to view the interactive OpenAPI documentation.
 
-# 3. Start Streamlit (in a separate terminal)
+### Step 6: Start the Streamlit Dashboard
+In a **new terminal window** (with the virtual environment activated), start the Streamlit application:
+```bash
 streamlit run dashboard/streamlit_app.py --server.port 8501
 ```
+* **Verify Dashboard**: Open [http://localhost:8501](http://localhost:8501) in your browser to interact with the visual dashboard panel.
+
 
 ---
 
